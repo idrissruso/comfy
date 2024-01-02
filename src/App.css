@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* styles.css */
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
+@media only screen and (min-width: 600px) {
+  html {
+    font-size: 75%; /* 1rem = 12px */
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  html {
+    font-size: 87.5%; /* 1rem = 14px */
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  html {
+    font-size: 100%; /* 1rem = 16px */
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  html {
+    font-size: 125%; /* 1rem = 20px */
+  }
+}
