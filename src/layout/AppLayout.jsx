@@ -1,12 +1,13 @@
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import { Outlet } from 'react-router-dom'
 
 function AppLayout() {
   return (
-    <div className=" bg-primary-100">
+    <div className=" bg-primary-100 min-h-screen">
       <Navbar />
       <main className=" bg-orange-700">
-        <h1>AppLayout</h1>
+        <Outlet />
       </main>
       <Footer />
     </div>
