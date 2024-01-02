@@ -1,9 +1,7 @@
+import AppLayout from './layout/AppLayout'
+
 function App() {
-  return (
-    <div>
-      <h1 className=" text-[2rem] text-primary">Hello World</h1>
-    </div>
-  )
+  return AppLayout()
 }
 
 export default App
