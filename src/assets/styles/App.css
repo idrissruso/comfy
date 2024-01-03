@@ -38,3 +38,21 @@ html {
     font-size: 125%; /* 1rem = 20px */
   }
 }
+
+@keyframes from-left {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes from-right {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
