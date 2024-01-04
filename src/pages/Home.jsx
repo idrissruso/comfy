@@ -1,5 +1,5 @@
-import { Header } from './Header'
-import { ImagesBox } from './ImagesBox'
+import { Header } from '../components/home/Header'
+import { ImagesBox } from '../components/home/ImagesBox'
 
 function Home() {
   return (

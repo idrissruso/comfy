@@ -1,6 +1,8 @@
+import Button from '../common/Button'
+
 export function Header() {
   return (
-    <div className=" flex-1 lg:w-1/2 text-white flex gap-3 flex-col  lg:justify-center">
+    <div className=" flex-1 lg:w-1/2 text-white flex gap-5 flex-col  lg:justify-center">
       <h1 className="text-text font-bold text-6xl mt-4">
         Indulge Your Sweet Tooth
       </h1>
@@ -11,6 +13,9 @@ export function Header() {
         passion, perfect for gifting or satisfying your cravings. Experience the
         finest in confectionery with Silhouette.
       </p>
+      <div className="self-start">
+        <Button text="Shop Now" size="lg" type="primary" />
+      </div>
     </div>
   )
 }
