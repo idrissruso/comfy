@@ -56,3 +56,36 @@ html {
     transform: translateX(0);
   }
 }
+
+/* lazy loading img */
+
+.img-div {
+  background-color: rgba(85, 52, 52, 0.7);
+}
+
+.img-div::before {
+  content: '';
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  animation: fadeIn 2.5s infinite;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+@keyframes fadeIn {
+  0% {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+.no-after::before {
+  display: none;
+}
