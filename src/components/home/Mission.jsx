@@ -7,7 +7,7 @@ import Card from './card'
 function Mission() {
   return (
     <div className=" bg-secondary-100 px-[11%] pt-[6rem]">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center flex-wrap md:flex-nowrap flex-col md:flex-row gap-10">
         <h1 className="text-4xl font-bold text-secondary-500">
           Crafting Culinary Moments With Your Lovers
         </h1>
@@ -16,8 +16,8 @@ function Mission() {
           desserts.make your moments memorable with your beloved ones.
         </p>
       </div>
-      <div>
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-12 mt-[6rem] h-[15rem]">
+      <div className=" md:translate-y-[5rem]">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-12 mt-4 lg:mt-[2rem]">
           <Card
             title="Mission"
             description="Crafting unforgettable culinary experiences tailored just for you, with the finest ingredients and the most delectable flavors. We are committed to delivering the highest quality products and services, with a focus on exceptional customer service and satisfaction."

@@ -19,6 +19,7 @@ export default {
         },
         text: '#112A43',
         textLight: '#6E89A0',
+        textDark: '#222323',
       },
     },
   },

@@ -2,6 +2,7 @@ import { Header } from '../components/home/Header'
 import { ImagesBox } from '../components/home/ImagesBox'
 import FeaturedProducts from '../components/home/FeaturedProducts'
 import Mission from '../components/home/Mission'
+import Email from '../components/home/Email'
 
 function Home() {
   return (
@@ -12,6 +13,7 @@ function Home() {
       </div>
       <FeaturedProducts />
       <Mission />
+      <Email />
     </div>
   )
 }
