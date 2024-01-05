@@ -13,7 +13,6 @@ function LoadImgBox({ src, alt, params, width, height, onClick }) {
       }
     }
   }, [isLoaded, src])
-  console.log(width, height)
 
   return (
     <div
@@ -23,7 +22,6 @@ function LoadImgBox({ src, alt, params, width, height, onClick }) {
     >
       {isLoaded && (
         <img
-          loading="lazy"
           className="rounded-md block w-full h-full object-cover object-center cursor-pointer group-hover:scale-105 transition-all duration-300 ease-in-out group-hover:shadow-2xl group-hover:brightness-50 back-face-visibility"
           src={src}
           alt={alt}

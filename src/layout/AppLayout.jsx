@@ -4,9 +4,9 @@ import { Outlet } from 'react-router-dom'
 
 function AppLayout() {
   return (
-    <div className=" bg-primary-100 min-h-screen">
+    <div className=" bg-primary-100">
       <Navbar />
-      <main className="min-h-screen">
+      <main className="">
         <Outlet />
       </main>
       <Footer />

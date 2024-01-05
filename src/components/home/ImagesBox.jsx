@@ -26,7 +26,6 @@ export function ImagesBox() {
       >
         {isLoaded1 && (
           <img
-            loading="lazy"
             className="rounded-md block w-full h-full"
             src="images/image1.jpeg"
             alt="cakeImage"
@@ -41,7 +40,6 @@ export function ImagesBox() {
       >
         {isLoaded2 && (
           <img
-            loading="lazy"
             className="rounded-md block w-full h-full"
             src="images/image2.jpeg"
             alt="cakeImage"
@@ -55,7 +53,6 @@ export function ImagesBox() {
       >
         {isLoaded3 && (
           <img
-            loading="lazy"
             className="rounded-md block w-full h-full"
             src="images/image3.jpeg"
             alt="cakeImage"
