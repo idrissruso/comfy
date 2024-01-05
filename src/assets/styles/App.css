@@ -4,14 +4,7 @@
 
 /* styles.css */
 html {
-  padding: 0 11%;
   font-size: 62.5%; /* 1rem = 10px */
-}
-
-@media only screen and (max-width: 600px) {
-  html {
-    padding: 0 5%; /* 1rem = 8px */
-  }
 }
 
 @media only screen and (min-width: 600px) {
@@ -62,7 +55,7 @@ html {
   background-color: rgba(85, 52, 52, 0.7);
 }
 
-.img-div::before {
+.img-box::before {
   content: '';
   display: block;
   position: absolute;
@@ -87,4 +80,9 @@ html {
 
 .no-after::before {
   display: none;
+}
+
+.back-dace-visibility {
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
 }
