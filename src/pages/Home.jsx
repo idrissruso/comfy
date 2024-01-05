@@ -5,7 +5,7 @@ import FeaturedProducts from '../components/home/FeaturedProducts'
 function Home() {
   return (
     <div className="">
-      <div className="flex justify-between min-h-[38rem] px-[11%]">
+      <div className="flex justify-between lg:min-h-[38rem] px-[11%] mb-8">
         <Header />
         <ImagesBox />
       </div>

@@ -7,7 +7,8 @@ export default {
       colors: {
         primary: {
           100: '#fff',
-          200: '#DEEEF6',
+          200: '#F0F5F9',
+          400: '#DEEEF6',
         },
         secondary: {
           100: '#EADED7',
@@ -17,6 +18,7 @@ export default {
           500: '#443327',
         },
         text: '#112A43',
+        textLight: '#6E89A0',
       },
     },
   },

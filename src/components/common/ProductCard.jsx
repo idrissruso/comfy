@@ -1,4 +1,5 @@
 import LoadImgBox from './LoadImgBox'
+import { capitalize } from '../../utils/methods'
 
 function ProductCard({ product }) {
   return (
@@ -7,14 +8,19 @@ function ProductCard({ product }) {
         <LoadImgBox
           src={product.image}
           alt={'product.name'}
-          width={'23rem'}
-          height={'15rem'}
           params={
             'hover:backdrop-blur-md transition-all duration-300 ease-in-out'
           }
         />
       </div>
-      <dir></dir>
+      <div className=" flex justify-between mt-5">
+        <span className=" text-textLight text-md font-semibold">
+          {capitalize(product.alt_description)}
+        </span>
+        <span className=" text-secondary-400 font-thin text-lg">
+          {`$${product.price}`}
+        </span>
+      </div>
     </div>
   )
 }

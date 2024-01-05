@@ -1,4 +1,5 @@
 import ProductCard from '../common/ProductCard'
+import Button from '../common/Button'
 
 const featuredProducts = [
   {
@@ -41,17 +42,20 @@ const featuredProducts = [
 
 function FeaturedProducts() {
   return (
-    <div className=" bg-primary-200 px-[11%] py-10">
+    <div className=" bg-primary-200 px-[11%] py-10 flex justify-center gap-10 flex-col">
       <div className="flex justify-center items-center flex-col gap-3">
         <h1 className="text-text font-bold text-4xl">Featured Products</h1>
-        <hr className=" w-20 h-1.5 bg-secondary-400" />
+        <hr className=" w-20 h-1 bg-secondary-400" />
       </div>
       <div>
-        <div className="grid grid-cols-3 gap-12">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-12 mt-12">
           {featuredProducts.map((product) => (
             <ProductCard key={product.code} product={product} />
           ))}
         </div>
+      </div>
+      <div className=" self-center mt-5">
+        <Button text="All Products" size="md" type="primary" />
       </div>
     </div>
   )

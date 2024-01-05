@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { BiSearch } from 'react-icons/bi'
 
-function LoadImgBox({ src, alt, params, width, height }) {
+function LoadImgBox({ src, alt, params, width, height, onClick }) {
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
@@ -17,7 +17,7 @@ function LoadImgBox({ src, alt, params, width, height }) {
 
   return (
     <div
-      className={`group relative flex items-center justify-center img-box rounded-md overflow-hidden w-[23rem] h-[15rem] ${
+      className={`group relative flex items-center justify-center img-box rounded-md overflow-hidden h-[15rem] ${
         isLoaded ? 'no-after bg-transparent' : 'bg-secondary-400'
       } ${params}`}
     >
@@ -31,7 +31,8 @@ function LoadImgBox({ src, alt, params, width, height }) {
       )}
       <span
         className="z-50 bg-secondary-400 flex justify-center items-center absolute rounded-full p-1.5 opacity-0
-         translate-y-[100%] transition-all duration-300 ease-in-out group-hover:opacity-100 group-hover:translate-y-0"
+         translate-y-[100%] transition-all duration-300 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 cursor-pointer"
+        onClick={() => onClick?.()}
       >
         <BiSearch className="text-2xl text-white back-face-visibility" />
       </span>
