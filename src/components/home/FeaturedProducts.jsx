@@ -55,7 +55,7 @@ function FeaturedProducts() {
         </div>
       </div>
       <div className=" self-center mt-5">
-        <Button text="All Products" size="md" type="primary" />
+        <Button text="ALL PRODUCTS" size="sm" type="primary" />
       </div>
     </div>
   )

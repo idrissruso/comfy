@@ -1,6 +1,7 @@
 import { Header } from '../components/home/Header'
 import { ImagesBox } from '../components/home/ImagesBox'
 import FeaturedProducts from '../components/home/FeaturedProducts'
+import Mission from '../components/home/Mission'
 
 function Home() {
   return (
@@ -10,6 +11,7 @@ function Home() {
         <ImagesBox />
       </div>
       <FeaturedProducts />
+      <Mission />
     </div>
   )
 }
