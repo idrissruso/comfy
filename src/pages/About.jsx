@@ -20,9 +20,9 @@ function About() {
           <span className="text-secondary-500 cursor-pointer">About</span>
         </h1>
       </header>
-      <div className="grid grid-cols-2 px-[11%] py-[5rem] gap-10">
+      <div className="grid md:grid-cols-2 px-[11%] py-[5rem] gap-10 ">
         <LoadImgBox
-          src="https://images.unsplash.com/photo-1626424352807-0b8b5b9d5b4e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmFja2dyb3VuZCUyMGNvbG9yfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80"
+          src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w0NDgzNTl8MHwxfHNlYXJjaHwxfHxjYWtlfGVufDB8fHx8MTcwMzYyMDg3M3ww&ixlib=rb-4.0.3&q=85"
           alt="about"
           size="lg"
         />
