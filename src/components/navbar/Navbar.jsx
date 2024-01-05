@@ -22,7 +22,7 @@ function Navbar() {
 
   return (
     <NavContext.Provider value={{ showNav, toggleNav, closeNav }}>
-      <nav className="mt-4 flex items-center justify-between px-[11%]">
+      <nav className="mt-4 flex items-center justify-between px-[11%] mb-7">
         <SmallScreenNav />
         <Logo />
         <Menu />
