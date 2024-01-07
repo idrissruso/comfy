@@ -8,7 +8,10 @@ export default {
         primary: {
           100: '#fff',
           200: '#F0F5F9',
+          300: '#D9E2DC',
           400: '#DEEEF6',
+          500: '#B5D1E0',
+          600: '#8CB4CA',
         },
         secondary: {
           100: '#EADED7',
