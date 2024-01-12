@@ -17,10 +17,14 @@ function Sidebar() {
       />
       <div>
         <Title>Category</Title>
-        <ul className="flex flex-col gap-2">
-          <Item>Category 1</Item>
-          <Item>Category 2</Item>
-          <Item>Category 3</Item>
+        <ul className="flex flex-col">
+          <Item>All</Item>
+          <Item>Office</Item>
+          <Item>Living Room</Item>
+          <Item>Kitchen</Item>
+          <Item>Bedroom</Item>
+          <Item>Dining</Item>
+          <Item>Kids</Item>
         </ul>
       </div>
       <div>
@@ -60,8 +64,7 @@ function Item({ children, onClick, active }) {
   //make the li decoration none
   return (
     <li
-      className={`cursor-pointer text-text hover:underline underline-offset-8 font-thin
-        
+      className={`cursor-pointer text-textLight  font-thin
       ${active && 'font-bold underline back-face-visibility'}`}
       onClick={onClick}
     >
@@ -71,7 +74,7 @@ function Item({ children, onClick, active }) {
 }
 
 function Title({ children }) {
-  return <h2 className="text-lg my-3">{children}</h2>
+  return <h2 className="my-1 font-semibold text-text">{children}</h2>
 }
 
 export default Sidebar
