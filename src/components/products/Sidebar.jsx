@@ -49,9 +49,9 @@ function Sidebar() {
           onChange={handlePriceChange}
         />
       </div>
-      <div className="flex items-center justify-evenly py-2">
+      <div className="flex py-2 gap-x-5">
         <span>Free Shipping</span>
-        <input type="checkbox" />
+        <input type="checkbox" className="mr-auto" />
       </div>
       <div>
         <Button text={'Clear'} size={'sm'} type="danger" />
