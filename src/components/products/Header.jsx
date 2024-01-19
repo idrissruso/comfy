@@ -17,13 +17,47 @@ function PHeader() {
   }
 
   return (
-    <div className="flex gap-2">
-      <Icon onClick={handleGridClick} active={grid}>
-        <BiSolidGridAlt />
-      </Icon>
-      <Icon onClick={handleMenuClick} active={menu}>
-        <BiMenu />
-      </Icon>
+    <div className="flex items-center gap-6">
+      <div className="flex gap-2">
+        <Icon onClick={handleGridClick} active={grid}>
+          <BiSolidGridAlt />
+        </Icon>
+        <Icon onClick={handleMenuClick} active={menu}>
+          <BiMenu />
+        </Icon>
+      </div>
+      <Result />
+      <Line />
+      <SortBy />
+    </div>
+  )
+}
+
+function Line() {
+  return (
+    <div className="flex items-center gap-2">
+      <span className="bg-textLight w-[30rem] h-[.5px] block">&nbsp;</span>
+    </div>
+  )
+}
+
+function Result() {
+  return (
+    <div>
+      <span>22 products founded</span>
+    </div>
+  )
+}
+
+function SortBy() {
+  return (
+    <div className="flex">
+      <span>Sort By</span>
+      <select>
+        <option value="">Price</option>
+        <option value="">Company 2</option>
+        <option value="">Company 3</option>
+      </select>
     </div>
   )
 }
