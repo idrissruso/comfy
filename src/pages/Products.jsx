@@ -1,9 +1,10 @@
 import Header from '../components/common/Header'
 import Sidebar from '../components/products/Sidebar'
 import PHeader from '../components/products/Header'
-import ProductCard from '../components/common/ProductCard'
+import { Items } from './Items'
+import { createContext, useState } from 'react'
 
-const product = {
+export const product = {
   name: 'sweets',
   image:
     'https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?crop=entropy&cs=srgb&fm=jpg&ixid=M3w0NDgzNTl8MHwxfHNlYXJjaHwyfHxzd2VldHN8ZW58MHx8fHwxNzAzNjIwODc1fDA&ixlib=rb-4.0.3&q=85',
@@ -15,28 +16,25 @@ const product = {
   category: 1,
   shipping: 8.99,
 }
+
+export const DisplayContext = createContext()
+
 function Products() {
+  const [display, setDisplay] = useState('grid')
+
   return (
-    <div>
-      <Header path={'Products'} />
-      <div className="flex px-[11%]  py-14 flex-wrap">
-        <Sidebar />
-        <div className="flex-1">
-          <PHeader />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-            <ProductCard product={product} size={'small'} />
-            <ProductCard product={product} size={'small'} />
-            <ProductCard product={product} size={'small'} />
-            <ProductCard product={product} size={'small'} />
-            <ProductCard product={product} size={'small'} />
-            <ProductCard product={product} size={'small'} />
-            <ProductCard product={product} size={'small'} />
-            <ProductCard product={product} size={'small'} />
-            <ProductCard product={product} size={'small'} />
+    <DisplayContext.Provider value={{ display, setDisplay }}>
+      <div>
+        <Header path={'Products'} />
+        <div className="flex px-[11%]  py-14 flex-wrap">
+          <Sidebar />
+          <div className="flex-1">
+            <PHeader />
+            <Items />
           </div>
         </div>
       </div>
-    </div>
+    </DisplayContext.Provider>
   )
 }
 

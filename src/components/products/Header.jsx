@@ -1,19 +1,23 @@
 import { BiSolidGridAlt } from 'react-icons/bi'
 import { BiMenu } from 'react-icons/bi'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { DisplayContext } from '../../pages/Products'
 
 function PHeader() {
   const [menu, setMenu] = useState(false)
-  const [grid, setGrid] = useState(false)
+  const [grid, setGrid] = useState(true)
+  const { setDisplay } = useContext(DisplayContext)
 
   function handleMenuClick() {
     setMenu(!menu)
     setGrid(false)
+    setDisplay('list')
   }
 
   function handleGridClick() {
     setGrid(!grid)
     setMenu(false)
+    setDisplay('grid')
   }
 
   return (
