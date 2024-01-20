@@ -9,7 +9,7 @@ function Sidebar() {
   }
 
   return (
-    <aside className="flex flex-col gap-1 px-5">
+    <aside className="flex flex-col gap-1 px-5 sticky top-0">
       <input
         type="text"
         placeholder="Search"
