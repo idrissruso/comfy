@@ -17,7 +17,7 @@ function PHeader() {
   }
 
   return (
-    <div className="flex items-center gap-6 flex-wrap">
+    <div className="flex  flex-col md:flex-row gap-6 flex-wrap mt-9 md:mt-0">
       <div className="flex gap-2">
         <Icon onClick={handleGridClick} active={grid}>
           <BiSolidGridAlt />
@@ -36,9 +36,7 @@ function PHeader() {
 function Line() {
   return (
     <div className="flex items-center flex-1 gap-2">
-      <span className="bg-textLight min-w-[20rem] w-full h-[.5px] block">
-        &nbsp;
-      </span>
+      <span className="bg-textLight w-full h-[.5px] block">&nbsp;</span>
     </div>
   )
 }

@@ -1,7 +1,13 @@
 import LoadImgBox from './LoadImgBox'
 import { capitalize } from '../../utils/methods'
 
-function ProductCard({ product }) {
+function ProductCard({ product, size }) {
+  const sizes = {
+    small: 'font-thin text-sm',
+    medium: 'font-semibold text-md',
+    large: 'font-thin text-lg',
+  }
+
   return (
     <div>
       <div className="">
@@ -14,10 +20,18 @@ function ProductCard({ product }) {
         />
       </div>
       <div className=" flex justify-between mt-5">
-        <span className=" text-textLight text-md font-semibold">
+        <span
+          className={`text-textLight
+          ${sizes[size]}
+        `}
+        >
           {capitalize(product.alt_description)}
         </span>
-        <span className=" text-secondary-400 font-thin text-lg">
+        <span
+          className={`text-secondary-400
+          ${sizes[size]}
+        `}
+        >
           {`$${product.price}`}
         </span>
       </div>
