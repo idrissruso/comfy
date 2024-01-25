@@ -1,5 +1,6 @@
 import ProductCard from '../common/ProductCard'
 import Button from '../common/Button'
+import { useNavigate } from 'react-router-dom'
 
 const featuredProducts = [
   {
@@ -41,6 +42,7 @@ const featuredProducts = [
 ]
 
 function FeaturedProducts() {
+  const navigate = useNavigate()
   return (
     <div className=" bg-primary-200 px-[11%] py-10 flex justify-center gap-10 flex-col">
       <div className="flex justify-center items-center flex-col gap-3">
@@ -50,12 +52,22 @@ function FeaturedProducts() {
       <div>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-12 mt-12">
           {featuredProducts.map((product) => (
-            <ProductCard key={product.code} product={product} />
+            <ProductCard
+              key={product.code}
+              product={product}
+              size={'medium'}
+              type={'grid'}
+            />
           ))}
         </div>
       </div>
       <div className=" self-center mt-5">
-        <Button text="ALL PRODUCTS" size="sm" type="primary" />
+        <Button
+          text="ALL PRODUCTS"
+          size="sm"
+          type="primary"
+          onClick={() => navigate('/products/1')}
+        />
       </div>
     </div>
   )

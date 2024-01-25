@@ -1,6 +1,8 @@
 import Button from '../common/Button'
+import { useNavigate } from 'react-router-dom'
 
 export function Header() {
+  const navigate = useNavigate()
   return (
     <div className=" flex-1 lg:w-1/2 text-white flex gap-5 flex-col  lg:justify-center">
       <h1 className="text-text font-bold lg:text-7xl text-5xl mt-4">
@@ -13,7 +15,12 @@ export function Header() {
         confectionery with Silhouette.
       </p>
       <div className="self-start">
-        <Button text="Shop Now" size="lg" type="primary" />
+        <Button
+          text="Shop Now"
+          size="lg"
+          type="primary"
+          onClick={() => navigate('/products/1')}
+        />
       </div>
     </div>
   )
