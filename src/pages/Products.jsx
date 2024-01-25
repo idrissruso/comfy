@@ -3,6 +3,7 @@ import Sidebar from '../components/products/Sidebar'
 import PHeader from '../components/products/Header'
 import { Items } from './Items'
 import { createContext, useState } from 'react'
+import Tracker from '../components/products/Tracker'
 
 export const product = {
   name: 'sweets',
@@ -26,11 +27,16 @@ function Products() {
     <DisplayContext.Provider value={{ display, setDisplay }}>
       <div>
         <Header path={'Products'} />
-        <div className="flex px-[11%]  py-14 flex-wrap">
-          <Sidebar />
-          <div className="flex-1">
+        <div className="flex px-[11%]  py-14 flex-wrap h-full">
+          <div>
+            <Sidebar />
+          </div>
+          <div className="flex-1 flex flex-col">
             <PHeader />
             <Items />
+            <div className=" self-end mt-8">
+              <Tracker />
+            </div>
           </div>
         </div>
       </div>

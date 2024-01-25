@@ -21,6 +21,7 @@ export default {
           500: '#443327',
         },
         text: '#112A43',
+        textDarker: '#0D1C2E',
         textLight: '#6E89A0',
         textDark: '#222323',
       },

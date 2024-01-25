@@ -42,7 +42,7 @@ function ProductCard({ product, size, type }) {
   } else if (type === 'list') {
     return (
       <div className="flex items-center gap-5 md:flex-nowrap flex-wrap">
-        <div className="min-w-[20rem] flex-1">
+        <div className="min-w-[23rem] flex-1">
           <LoadImgBox
             src={product.image}
             alt={'product.name'}

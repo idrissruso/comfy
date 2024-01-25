@@ -9,7 +9,7 @@ function Sidebar() {
   }
 
   return (
-    <aside className="flex flex-col gap-1 px-5 sticky top-0">
+    <aside className="flex flex-col gap-1 px-5 relative sm:sticky top-0">
       <input
         type="text"
         placeholder="Search"
@@ -61,7 +61,6 @@ function Sidebar() {
 }
 
 function Item({ children, onClick, active }) {
-  //make the li decoration none
   return (
     <li
       className={`cursor-pointer text-textLight  font-thin
