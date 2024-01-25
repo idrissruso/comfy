@@ -16,6 +16,7 @@ function ProductCard({ product, size, type }) {
           <LoadImgBox
             src={product.image}
             alt={'product.name'}
+            id={product.id}
             params={
               'hover:backdrop-blur-md transition-all duration-300 ease-in-out'
             }

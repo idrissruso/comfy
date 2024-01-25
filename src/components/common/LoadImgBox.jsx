@@ -1,9 +1,15 @@
 import { useEffect, useState } from 'react'
 import { BiSearch } from 'react-icons/bi'
 import Spinner from './Spinner'
+import { useNavigate } from 'react-router-dom'
 
-function LoadImgBox({ src, alt, params, onClick, size }) {
+function LoadImgBox({ src, alt, params, size, id, noHover = false }) {
   const [isLoaded, setIsLoaded] = useState(false)
+  const navigate = useNavigate()
+
+  function handleClick() {
+    if (id) navigate(`/product/${id}`)
+  }
 
   const sizes = {
     sm: 'h-[10rem] w-full',
@@ -26,7 +32,9 @@ function LoadImgBox({ src, alt, params, onClick, size }) {
     <div
       className={`group relative flex items-center justify-center img-box rounded-md overflow-hidden ${
         sizes[size]
-      } ${isLoaded ? 'no-after bg-transparent' : 'bg-secondary-400'} ${params}`}
+      } ${isLoaded ? 'no-after bg-transparent' : 'bg-secondary-400'} ${params}
+      ${noHover ? 'pointer-events-none' : ''}
+      `}
     >
       {isLoaded ? (
         <img
@@ -40,7 +48,7 @@ function LoadImgBox({ src, alt, params, onClick, size }) {
       <span
         className="z-50 bg-secondary-400 flex justify-center items-center absolute rounded-full p-1.5 opacity-0
          translate-y-[100%] transition-all duration-300 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 cursor-pointer"
-        onClick={() => onClick?.()}
+        onClick={() => handleClick()}
       >
         <BiSearch className="text-2xl text-white back-face-visibility" />
       </span>
