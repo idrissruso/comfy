@@ -1,7 +1,7 @@
-import ProductCard from '../components/common/ProductCard'
-import { product } from './Products'
+import ProductCard from '../common/ProductCard'
+import { product } from '../../pages/Products'
 import { useContext } from 'react'
-import { DisplayContext } from './Products'
+import { DisplayContext } from '../../pages/Products'
 
 export function Items() {
   const { display: type } = useContext(DisplayContext)

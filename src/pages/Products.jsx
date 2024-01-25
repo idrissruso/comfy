@@ -1,7 +1,7 @@
 import Header from '../components/common/Header'
 import Sidebar from '../components/products/Sidebar'
 import PHeader from '../components/products/Header'
-import { Items } from './Items'
+import { Items } from '../components/products/Items'
 import { createContext, useState } from 'react'
 import Tracker from '../components/products/Tracker'
 
