@@ -4,15 +4,15 @@ import LoadImgBox from '../components/common/LoadImgBox'
 
 function Product() {
   return (
-    <div className="mx-[11%]">
+    <div className="mx-[11%] space-y-5">
       <Header path={'Product/Cake'} />
       <Button text={'Back to All Products'} size={'sm'} type={'primary'} />
-      <div className="grid md:grid-cols-2 py-[5rem] gap-10 ">
+      <div className="grid md:grid-cols-2 gap-10 ">
         <div>
           <LoadImgBox
             src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w0NDgzNTl8MHwxfHNlYXJjaHwxfHxjYWtlfGVufDB8fHx8MTcwMzYyMDg3M3ww&ixlib=rb-4.0.3&q=85"
             alt="about"
-            size="lg"
+            size="md"
             noHover={true}
           />
         </div>
