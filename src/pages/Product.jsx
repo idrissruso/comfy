@@ -1,6 +1,7 @@
 import Button from '../components/common/Button'
 import Header from '../components/common/Header'
 import LoadImgBox from '../components/common/LoadImgBox'
+import StarsRating from '../components/common/StarsRating'
 
 function Product() {
   return (
@@ -19,6 +20,8 @@ function Product() {
         <div>
           <h2 className="text-3xl font-bold mt-8">Cake</h2>
           <hr className=" mt-4 mb-8 w-20 h-1 bg-secondary-400 rounded-full" />
+          <StarsRating />
+          <span className="text-secondary-400 font-semibold">$10</span>
           <p className="mt-4 text-textLight leading-8">
             Welcome to Silhouette, a culinary haven nestled in the heart of the
             city. Our restaurant offers an eclectic menu inspired by global
