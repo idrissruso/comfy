@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { FaStar } from 'react-icons/fa'
 
 function StarsRating() {
-  const [rating, setRating] = useState(null) // Initialize rating to null
+  const [rating, setRating] = useState(2) // Initialize rating to null
   const [hover, setHover] = useState(null) // Initialize hover to null
 
   return (

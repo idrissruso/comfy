@@ -8,7 +8,7 @@ function LoadImgBox({ src, alt, params, size, id, noHover = false }) {
   const navigate = useNavigate()
 
   function handleClick() {
-    if (id) navigate(`/product/${id}`)
+    navigate(`/product/${id}`)
   }
 
   const sizes = {

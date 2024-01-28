@@ -18,20 +18,20 @@ function Product() {
           />
         </div>
         <div>
-          <h2 className="text-3xl font-bold mt-8">Cake</h2>
-          <hr className=" mt-4 mb-8 w-20 h-1 bg-secondary-400 rounded-full" />
-          <StarsRating />
-          <span className="text-secondary-400 font-semibold">$10</span>
+          <div className="flex flex-col gap-1">
+            <h2 className="text-3xl font-bold mt-8">Cake</h2>
+            <StarsRating />
+            <span className="text-secondary-400 font-semibold text-xl">
+              $10
+            </span>
+          </div>
           <p className="mt-4 text-textLight leading-8">
             Welcome to Silhouette, a culinary haven nestled in the heart of the
             city. Our restaurant offers an eclectic menu inspired by global
             flavors. Each dish is meticulously crafted by our skilled chefs,
-            using locally sourced, fresh ingredients. Our warm and inviting
-            ambiance, coupled with our commitment to exceptional service,
-            promises an unforgettable dining experience. Join us at Silhouette,
-            where good food meets passion. We look forward to serving you and
-            making your dining experience a memorable one.
+            using locally sourced, fresh ingredients.
           </p>
+          <div></div>
         </div>
       </div>
     </div>
