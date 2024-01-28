@@ -6,11 +6,13 @@ import { Menu } from './Menu'
 import { Action } from './Action'
 import { NavItems } from './NavItems'
 import { Logo } from './Logo'
+import { useNavigate } from 'react-router-dom'
 
 export const NavContext = createContext()
 
 function Navbar() {
   const [showNav, setShowNav] = useState(false)
+  const navigate = useNavigate()
 
   function toggleNav() {
     setShowNav(!showNav)
@@ -35,7 +37,7 @@ function Navbar() {
         </div>
         <NavItems />
         <div className="md:flex gap-3 hidden ">
-          <Action label="Cart" count={10}>
+          <Action label="Cart" count={10} onClick={() => navigate('/cart')}>
             <BiSolidCartAlt size={34} color="#AA7B5F" />
           </Action>
           <Action label="Login">

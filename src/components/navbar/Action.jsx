@@ -1,6 +1,9 @@
-export function Action({ label, count, children }) {
+export function Action({ label, count, children, onClick }) {
   return (
-    <div className="flex items-center relative cursor-pointer">
+    <div
+      className="flex items-center relative cursor-pointer"
+      onClick={onClick}
+    >
       <span className="text-xl">{label}</span>
       {children}
       {count > 0 && (

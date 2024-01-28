@@ -15,6 +15,7 @@ function StarsRating() {
             value={i + 1}
             checked={rating === i + 1} // Use checked for radio button state
             onClick={() => setRating(i + 1)}
+            onChange={() => setRating(i + 1)}
             className="hidden"
           />
           <FaStar

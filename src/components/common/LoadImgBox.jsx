@@ -12,13 +12,11 @@ function LoadImgBox({ src, alt, params, size, id, noHover = false }) {
   }
 
   const sizes = {
-    sm: 'h-[10rem] w-full',
+    sm: 'h-[9rem] w-[10rem] ',
     md: 'h-[25rem] w-full',
     lg: 'h-[30rem] w-full',
     xl: 'h-[35rem] w-full ',
   }
-
-  console.log(size)
 
   useEffect(() => {
     const img = new Image()

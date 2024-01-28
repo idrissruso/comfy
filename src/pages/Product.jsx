@@ -34,7 +34,7 @@ function Product() {
             using locally sourced, fresh ingredients.
           </p>
           <IndexVal stock={'In Stock'} brand={'Nur'} code={'Khytvy12YGbbnj'} />
-          <hr />
+          <hr className="border-1 height-[1px] my-5" />
           <div className="flex flex-col gap-5 my-5">
             <Buttons />
             <div>
