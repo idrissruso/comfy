@@ -2,6 +2,8 @@ import Button from '../components/common/Button'
 import Header from '../components/common/Header'
 import LoadImgBox from '../components/common/LoadImgBox'
 import StarsRating from '../components/common/StarsRating'
+import IndexVal from '../components/products/IndexVal'
+import Buttons from '../components/products/Buttons'
 
 function Product() {
   return (
@@ -31,7 +33,14 @@ function Product() {
             flavors. Each dish is meticulously crafted by our skilled chefs,
             using locally sourced, fresh ingredients.
           </p>
-          <div></div>
+          <IndexVal stock={'In Stock'} brand={'Nur'} code={'Khytvy12YGbbnj'} />
+          <hr />
+          <div className="flex flex-col gap-5 my-5">
+            <Buttons />
+            <div>
+              <Button text={'Add to Cart'} size={'sm'} type={'primary'} />
+            </div>
+          </div>
         </div>
       </div>
     </div>
