@@ -9,9 +9,25 @@ function Cart() {
       <Header path={'Cart'} />
       <div className="px-[11%] mt-5">
         <main className="flex gap-10 justify-between items-center flex-wrap">
-          <div className="flex flex-col gap-5 flex-1 h-[20rem] min-w-max overflow-x-auto">
-            <CartItem />
-            <CartItem />
+          <div className="flex flex-col gap-5 flex-1">
+            <div className="flex flex-col gap-5 overflow-x-auto max-h-[30rem]">
+              <CartItem />
+              <CartItem />
+              <CartItem />
+              <CartItem />
+              <CartItem />
+              <CartItem />
+              <CartItem />
+              <CartItem />
+            </div>
+            <div className="flex justify-between">
+              <Button text={'Continue Shopping'} size={'sm'} type={'primary'} />
+              <Button
+                text={'Clear Shopping Cart'}
+                size={'sm'}
+                type={'secondary'}
+              />
+            </div>
           </div>
           <div className="flex flex-col gap-5">
             <Resume />

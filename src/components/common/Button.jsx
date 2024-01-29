@@ -9,6 +9,8 @@ function Button({ text, onClick, size, type }) {
     danger: 'bg-red-500 hover:bg-red-600 text-white ',
     primary:
       'bg-secondary-400 hover:bg-secondary-300 text-white hover:text-secondary-500 font-thin',
+    secondary:
+      'bg-textDark hover:bg-textDarker text-white hover:text-secondary-500 font-thin',
   }
 
   return (
