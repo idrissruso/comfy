@@ -5,9 +5,11 @@ import { NavContext } from './Navbar'
 import { Logo } from './Logo'
 import { NavItem } from './NavItem'
 import { Action } from './Action'
+import { useNavigate } from 'react-router-dom'
 
 export function SmallScreenNav() {
-  const { showNav } = useContext(NavContext)
+  const { showNav, closeNav } = useContext(NavContext)
+  const navigate = useNavigate()
 
   return (
     showNav && (
@@ -30,7 +32,14 @@ export function SmallScreenNav() {
             <NavItem link="/products">Products</NavItem>
           </ul>
           <div className="mt-10 flex gap-10 justify-center">
-            <Action label="Cart" count={10}>
+            <Action
+              label="Cart"
+              count={10}
+              onClick={() => {
+                navigate('/cart')
+                closeNav()
+              }}
+            >
               <BiSolidCartAlt size={34} color="#AA7B5F" />
             </Action>
             <Action label="Login">

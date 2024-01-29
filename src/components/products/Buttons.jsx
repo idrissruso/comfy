@@ -13,7 +13,7 @@ function Buttons() {
   }
 
   return (
-    <div className="flex gap-5 text-2xl font-semibold text-text">
+    <div className="flex gap-5 text-2xl font-semibold text-text text-[1.2rem]">
       <span className=" cursor-pointer select-none " onClick={handleDecrease}>
         -
       </span>

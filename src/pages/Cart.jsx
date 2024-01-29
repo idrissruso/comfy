@@ -10,7 +10,7 @@ function Cart() {
       <div className="px-[11%] mt-5">
         <main className="flex gap-10 justify-between items-center flex-wrap">
           <div className="flex flex-col gap-5 flex-1">
-            <div className="flex flex-col gap-5 overflow-x-auto max-h-[30rem]">
+            <div className="flex flex-col gap-5 overflow-x-auto max-h-[30rem] pr-5">
               <CartItem />
               <CartItem />
               <CartItem />
