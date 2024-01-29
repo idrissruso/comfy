@@ -25,8 +25,8 @@ function CartItem() {
             <span className="text-textLight font-thin text-lg">
               subtotal: $10
             </span>
-            <span>
-              <FaTrash className="text-red-500 text-lg cursor-pointer" />
+            <span className=" bg-red-600 ml-auto p-1 rounded-md cursor-pointer ">
+              <FaTrash className=" text-white cursor-pointer" size={'.8rem'} />
             </span>
           </div>
         </div>

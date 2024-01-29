@@ -17,7 +17,7 @@ function Buttons() {
       <span className=" cursor-pointer select-none " onClick={handleDecrease}>
         -
       </span>
-      <span className=" cursor-pointer select-none">{count}</span>
+      <span className="select-none">{count}</span>
       <span className=" cursor-pointer select-none" onClick={handleIncrease}>
         +
       </span>
