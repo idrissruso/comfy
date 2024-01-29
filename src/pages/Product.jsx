@@ -15,7 +15,7 @@ function Product() {
           <LoadImgBox
             src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w0NDgzNTl8MHwxfHNlYXJjaHwxfHxjYWtlfGVufDB8fHx8MTcwMzYyMDg3M3ww&ixlib=rb-4.0.3&q=85"
             alt="about"
-            size="md"
+            size={'lg'}
             noHover={true}
           />
         </div>

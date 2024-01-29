@@ -20,7 +20,7 @@ function Cart() {
               <CartItem />
               <CartItem />
             </div>
-            <div className="flex justify-between">
+            <div className="flex justify-between mb-5">
               <Button text={'Continue Shopping'} size={'sm'} type={'primary'} />
               <Button
                 text={'Clear Shopping Cart'}
