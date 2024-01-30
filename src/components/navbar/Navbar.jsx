@@ -41,7 +41,11 @@ function Navbar() {
             <BiSolidCartAlt size={34} color="#AA7B5F" />
           </Action>
           <Action label="Login">
-            <BiSolidUserPlus size={34} color="#AA7B5F" />
+            <BiSolidUserPlus
+              size={34}
+              color="#AA7B5F"
+              onClick={() => navigate('/login')}
+            />
           </Action>
         </div>
       </nav>
