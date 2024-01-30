@@ -6,23 +6,26 @@ import Product from './pages/Product'
 import About from './pages/About'
 import Cart from './pages/Cart'
 import Login from './pages/Login'
+import ReactQuery from './Api/ReactQuery'
 
 function App() {
   return (
     <div className="text-text">
-      <BrowserRouter>
-        <Routes>
-          <Route element={<AppLayout />}>
-            <Route index element={<Navigate replace to="/home" />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/products/:page" element={<Products />} />
-            <Route path="/about" element={<About />} />
-            <Route path="product/:id" element={<Product />} />
-            <Route path="/cart" element={<Cart />} />
-          </Route>
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </BrowserRouter>
+      <ReactQuery>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<AppLayout />}>
+              <Route index element={<Navigate replace to="/home" />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/products/:page" element={<Products />} />
+              <Route path="/about" element={<About />} />
+              <Route path="product/:id" element={<Product />} />
+              <Route path="/cart" element={<Cart />} />
+            </Route>
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </BrowserRouter>
+      </ReactQuery>
     </div>
   )
 }

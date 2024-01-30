@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.17.19",
+    "@tanstack/react-query-devtools": "^5.17.21",
     "blurhash-from-url": "^0.0.8",
     "ldrs": "^1.0.1",
     "react": "^18.2.0",
