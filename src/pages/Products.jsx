@@ -1,30 +1,32 @@
+import { createContext, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { useQuery } from '@tanstack/react-query'
+import { getProductByPage } from '../Api/methods'
+
 import Header from '../components/common/Header'
 import Sidebar from '../components/products/Sidebar'
 import PHeader from '../components/products/Header'
 import { Items } from '../components/products/Items'
-import { createContext, useState } from 'react'
 import Tracker from '../components/products/Tracker'
-
-export const product = {
-  name: 'sweets',
-  image:
-    'https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?crop=entropy&cs=srgb&fm=jpg&ixid=M3w0NDgzNTl8MHwxfHNlYXJjaHwyfHxzd2VldHN8ZW58MHx8fHwxNzAzNjIwODc1fDA&ixlib=rb-4.0.3&q=85',
-  price: 854,
-  code: 'SWE_6SNY9RNENB',
-  alt_description: 'assorted donuts top of white area',
-  description:
-    'Satisfy your sweet cravings with our delectable assortment of donuts, elegantly captured in this image. The assorted donuts, with their tempting glazes and toppings, are a treat for the eyes and a delight for the taste buds. Indulge in the sweetness of life with this irresistible collection of assorted donuts.',
-  category: 1,
-  shipping: 8.99,
-}
+import Loader from '../components/common/Loader'
 
 export const DisplayContext = createContext()
 
 function Products() {
   const [display, setDisplay] = useState('grid')
+  const { page } = useParams()
+  const { data, isLoading, isError, error } = useQuery({
+    queryKey: ['products', page?.toString()],
+    queryFn: () => getProductByPage(page),
+    staleTime: 0,
+  })
+
+  if (isLoading) return <Loader />
+
+  if (isError) return <div>{error.message}</div>
 
   return (
-    <DisplayContext.Provider value={{ display, setDisplay }}>
+    <DisplayContext.Provider value={{ display, setDisplay, data }}>
       <div>
         <Header path={'Products'} />
         <div className="flex px-[11%]  py-14 flex-wrap h-full">

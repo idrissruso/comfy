@@ -1,9 +1,17 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { useQuery } from '@tanstack/react-query'
+import { getProducts } from '../../Api/methods'
+import Loader from '../common/Loader'
 
 function Tracker() {
   const { page: currentPage = 3 } = useParams()
   const [page, setPage] = useState(Number(currentPage))
+  const { data, isLoading, isError, error } = useQuery({
+    queryKey: ['all'],
+    queryFn: () => getProducts(),
+    staleTime: 0,
+  })
 
   function nextPage() {
     setPage((prev) => (prev >= 3 ? 1 : prev + 1))
@@ -17,24 +25,31 @@ function Tracker() {
     setPage(value)
   }
 
+  if (isError) return <div>{error.message}</div>
+
+  if (isLoading) return <Loader />
+
+  const totalPages = Math.ceil(data?.length / 15)
+
   return (
     <form
       action={`${page}`}
       method="get"
-      className="flex w-[15rem] bg-text self-end rounded-lg text-white mt-5"
+      className="flex bg-text self-end rounded-lg text-white mt-5"
     >
       <Page currentPage={currentPage} page={page} onClick={prevPage}>
         Prev
       </Page>
-      <Page currentPage={currentPage} page={page} setCurrentPage={changePage}>
-        1
-      </Page>
-      <Page currentPage={currentPage} page={page} setCurrentPage={changePage}>
-        2
-      </Page>
-      <Page currentPage={currentPage} page={page} setCurrentPage={changePage}>
-        3
-      </Page>
+      {[...Array(totalPages)].map((_, index) => (
+        <Page
+          key={index}
+          currentPage={currentPage}
+          page={index + 1}
+          setCurrentPage={changePage}
+        >
+          {index + 1}
+        </Page>
+      ))}
       <Page currentPage={currentPage} page={page} onClick={nextPage}>
         Next
       </Page>
@@ -46,7 +61,7 @@ function Page({ children, onClick, setCurrentPage, page, currentPage }) {
   return (
     <button
       type="submit"
-      className={`shrink hover:bg-primary-700 flex-1 flex justify-center px-3 py-2 cursor-pointer uppercase ${
+      className={`shrink hover:bg-textDarker flex-1 flex justify-center px-3 py-2 cursor-pointer uppercase ${
         children === 'Prev'
           ? 'rounded-l-lg'
           : children === 'Next'
