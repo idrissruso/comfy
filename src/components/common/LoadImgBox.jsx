@@ -2,13 +2,16 @@ import { useEffect, useState } from 'react'
 import { BiSearch } from 'react-icons/bi'
 import Spinner from './Spinner'
 import { useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 function LoadImgBox({ src, alt, params, size, id, noHover = false }) {
   const [isLoaded, setIsLoaded] = useState(false)
   const navigate = useNavigate()
+  const { page = null } = useParams()
 
   function handleClick() {
     navigate(`/product/${id}`)
+    localStorage.setItem('page', page ?? 'featuredProducts')
   }
 
   const sizes = {
@@ -39,6 +42,7 @@ function LoadImgBox({ src, alt, params, size, id, noHover = false }) {
           className="rounded-md block w-full h-full object-cover object-center cursor-pointer group-hover:scale-105 transition-all duration-300 ease-in-out group-hover:shadow-2xl group-hover:brightness-50 back-face-visibility"
           src={src}
           alt={alt}
+          onClick={() => handleClick()}
         />
       ) : (
         <Spinner isLoading={true} />

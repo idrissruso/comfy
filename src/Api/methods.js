@@ -29,3 +29,13 @@ export async function getProducts() {
     throw error
   }
 }
+
+export async function getProductById(id) {
+  try {
+    const response = await fetch(`${API_URL}product/${id}/`)
+    const { product } = await response.json()
+    return product
+  } catch (error) {
+    throw error
+  }
+}
