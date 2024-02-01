@@ -8,10 +8,12 @@ import useGetProduct from '../components/products/usegetProduct'
 import toast from 'react-hot-toast'
 import Loader from '../components/common/Loader'
 import { useNavigate } from 'react-router-dom'
+import { useGetCategory } from '../components/products/useGetCategory'
 
 function Product() {
   const { isLoading, isError, error, productData } = useGetProduct()
   const navigate = useNavigate()
+  const { data } = useGetCategory(productData?.category || 1)
 
   if (isError) {
     toast.error(error.message)
@@ -40,11 +42,7 @@ function Product() {
           <p className="mt-4 text-textLight leading-8">
             {productData?.description}
           </p>
-          <IndexVal
-            stock={'In Stock'}
-            brand={productData?.category}
-            code={productData?.code}
-          />
+          <IndexVal stock={'In Stock'} brand={data} code={productData?.code} />
           <hr className="border-1 height-[1px] my-5" />
           <div className="flex flex-col gap-5 my-5">
             <Buttons />

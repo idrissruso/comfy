@@ -11,10 +11,6 @@ const useGetProduct = () => {
 
   const cachedData = queryClient.getQueryData(queryKey)
   const product = cachedData?.find((product) => product.id === parseInt(id))
-  console.log('cached' + cachedData)
-  console.log('produc' + product)
-  console.log(id)
-  console.log('loacal' + localStorage.getItem('page'))
 
   const {
     isLoading,
