@@ -4,20 +4,28 @@ import LoadImgBox from '../components/common/LoadImgBox'
 import StarsRating from '../components/common/StarsRating'
 import IndexVal from '../components/products/IndexVal'
 import Buttons from '../components/products/Buttons'
+import useGetProduct from '../components/products/usegetProduct'
+import toast from 'react-hot-toast'
+import Loader from '../components/common/Loader'
+import { useNavigate } from 'react-router-dom'
 
 function Product() {
+  const { isLoading, isError, error, productData } = useGetProduct()
+  const navigate = useNavigate()
+
+  if (isError) {
+    toast.error(error.message)
+    navigate(`/products/${localStorage.getItem('page') || '1'}}`)
+  }
+  if (isLoading) return <Loader />
+
   return (
     <div className="mx-[11%] space-y-5">
       <Header path={'Product/Cake'} />
       <Button text={'Back to All Products'} size={'sm'} type={'primary'} />
       <div className="grid md:grid-cols-2 gap-10 ">
         <div>
-          <LoadImgBox
-            src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w0NDgzNTl8MHwxfHNlYXJjaHwxfHxjYWtlfGVufDB8fHx8MTcwMzYyMDg3M3ww&ixlib=rb-4.0.3&q=85"
-            alt="about"
-            size={'lg'}
-            noHover={true}
-          />
+          <LoadImgBox src={productData?.image} size={'lg'} noHover={true} />
         </div>
         <div>
           <div className="flex flex-col gap-1">

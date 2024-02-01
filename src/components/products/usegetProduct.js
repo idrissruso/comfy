@@ -1,4 +1,4 @@
-import { useQuery, useQueryClient } from 'react-query'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { useParams } from 'react-router-dom'
 import { getProductById } from '../../Api/methods'
 
@@ -11,13 +11,20 @@ const useGetProduct = () => {
 
   const cachedData = queryClient.getQueryData(queryKey)
   const product = cachedData?.find((product) => product.id === parseInt(id))
+  console.log('cached' + cachedData)
+  console.log('produc' + product)
+  console.log(id)
+  console.log('loacal' + localStorage.getItem('page'))
 
   const {
     isLoading,
     isError,
     error,
     data: productData,
-  } = useQuery(['product', id], () => getProductById(id), {
+  } = useQuery({
+    queryKey: ['product', id],
+    queryFn: () => getProductById(id),
+    staleTime: 0,
     initialData: product,
     enabled: !!id && !product,
   })
