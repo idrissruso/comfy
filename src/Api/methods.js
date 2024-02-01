@@ -39,3 +39,13 @@ export async function getProductById(id) {
     throw error
   }
 }
+
+export async function getCategoryById(id) {
+  try {
+    const response = await fetch(`${API_URL}category/${id}/`)
+    const { category } = await response.json()
+    return category.name
+  } catch (error) {
+    throw error
+  }
+}

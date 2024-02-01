@@ -29,19 +29,22 @@ function Product() {
         </div>
         <div>
           <div className="flex flex-col gap-1">
-            <h2 className="text-3xl font-bold mt-8">Cake</h2>
+            <h2 className="text-3xl font-bold mt-8">
+              {productData?.alt_description}
+            </h2>
             <StarsRating />
             <span className="text-secondary-400 font-semibold text-xl">
               $10
             </span>
           </div>
           <p className="mt-4 text-textLight leading-8">
-            Welcome to Silhouette, a culinary haven nestled in the heart of the
-            city. Our restaurant offers an eclectic menu inspired by global
-            flavors. Each dish is meticulously crafted by our skilled chefs,
-            using locally sourced, fresh ingredients.
+            {productData?.description}
           </p>
-          <IndexVal stock={'In Stock'} brand={'Nur'} code={'Khytvy12YGbbnj'} />
+          <IndexVal
+            stock={'In Stock'}
+            brand={productData?.category}
+            code={productData?.code}
+          />
           <hr className="border-1 height-[1px] my-5" />
           <div className="flex flex-col gap-5 my-5">
             <Buttons />

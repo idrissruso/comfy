@@ -4,7 +4,7 @@ function IndexVal({ stock, code, brand }) {
       <p className="flex flex-col gap-3 flex-nowrap">
         <span className="text-text font-bold ">Available : </span>
         <span className="text-text font-bold ">SKU : </span>
-        <span className="text-text font-bold  ">Brand : </span>
+        <span className="text-text font-bold  ">Category : </span>
       </p>
       <p className="flex flex-col gap-3 flex-nowrap">
         <span className="text-textLight">{stock}</span>
