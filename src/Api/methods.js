@@ -49,3 +49,19 @@ export async function getCategoryById(id) {
     throw error
   }
 }
+
+export async function login({ email, password }) {
+  try {
+    const response = await fetch(`${API_URL}auth/api/token/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    })
+    const { access, refresh } = await response.json()
+    return { refresh, access }
+  } catch (error) {
+    throw error
+  }
+}
