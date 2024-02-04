@@ -43,6 +43,7 @@ function LoadImgBox({ src, alt, params, size, id, noHover = false }) {
           src={src}
           alt={alt}
           onClick={() => handleClick()}
+          loading="lazy"
         />
       ) : (
         <Spinner isLoading={true} />
