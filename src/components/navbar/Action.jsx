@@ -1,3 +1,6 @@
+import { useSelector } from 'react-redux'
+import { selectUser } from '../slices/authSlice'
+
 export function Action({ label, count, children, onClick }) {
   return (
     <div
