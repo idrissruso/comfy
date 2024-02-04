@@ -6,10 +6,14 @@ import { Logo } from './Logo'
 import { NavItem } from './NavItem'
 import { Action } from './Action'
 import { useNavigate } from 'react-router-dom'
+import { BiLogOut } from 'react-icons/bi'
+import { logout } from '../../slices/authSlice'
+import { useDispatch } from 'react-redux'
 
 export function SmallScreenNav() {
-  const { showNav, closeNav } = useContext(NavContext)
+  const { showNav, closeNav, user } = useContext(NavContext)
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   return (
     showNav && (
@@ -42,16 +46,24 @@ export function SmallScreenNav() {
             >
               <BiSolidCartAlt size={34} color="#AA7B5F" />
             </Action>
-            <Action label="Login">
-              <BiSolidUserPlus
-                size={34}
-                color="#AA7B5F"
+            {user ? (
+              <Action
+                label={user}
                 onClick={() => {
+                  dispatch(logout())
+                  localStorage.removeItem('accessToken')
+                  localStorage.removeItem('refreshToken')
                   navigate('/login')
                   closeNav()
                 }}
-              />
-            </Action>
+              >
+                <BiLogOut size={34} color="#AA7B5F" />
+              </Action>
+            ) : (
+              <Action label="Login" onClick={() => navigate('/login')}>
+                <BiSolidUserPlus size={34} color="#AA7B5F" />
+              </Action>
+            )}
           </div>
         </div>
       </div>

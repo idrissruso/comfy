@@ -4,11 +4,11 @@ import LoadImgBox from '../components/common/LoadImgBox'
 import StarsRating from '../components/common/StarsRating'
 import IndexVal from '../components/products/IndexVal'
 import Buttons from '../components/products/Buttons'
-import useGetProduct from '../components/products/usegetProduct'
+import useGetProduct from '../hooks/useGetProduct'
 import toast from 'react-hot-toast'
 import Loader from '../components/common/Loader'
 import { useNavigate } from 'react-router-dom'
-import { useGetCategory } from '../components/products/useGetCategory'
+import { useGetCategory } from '../hooks/useGetCategory'
 
 function Product() {
   const { isLoading, isError, error, productData } = useGetProduct()

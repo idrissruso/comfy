@@ -65,3 +65,13 @@ export async function login({ username, password }) {
     throw error
   }
 }
+
+export async function getCategories() {
+  try {
+    const response = await fetch(`${API_URL}category/all/`)
+    const { categories } = await response.json()
+    return categories
+  } catch (error) {
+    throw error
+  }
+}

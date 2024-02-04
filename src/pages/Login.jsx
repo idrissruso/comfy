@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { LogInComponent } from '../components/auth/LogInComponent'
 import { Register } from '../components/auth/Register'
 import { Button } from '../components/auth/Button'
-import { useLogin } from '../features/useLogin'
+import { useLogin } from '../hooks/useLogin'
 import Loader from '../components/common/Loader'
 
 function Login() {

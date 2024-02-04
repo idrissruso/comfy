@@ -1,8 +1,16 @@
 import { useState } from 'react'
 import Button from '../common/Button'
+import { useGetCategories } from '../../hooks/useGetCategories'
 
 function Sidebar() {
   const [price, setPrice] = useState(50)
+  const [category, setCategory] = useState('')
+
+  function handleCategoryChange(event) {
+    setCategory(event.target.value)
+  }
+
+  const { data: categories } = useGetCategories()
 
   function handlePriceChange(event) {
     setPrice(event.target.value)
@@ -18,21 +26,24 @@ function Sidebar() {
       <div>
         <Title>Category</Title>
         <ul className="flex flex-col">
-          <Item>All</Item>
-          <Item>Office</Item>
-          <Item>Living Room</Item>
-          <Item>Kitchen</Item>
-          <Item>Bedroom</Item>
-          <Item>Dining</Item>
-          <Item>Kids</Item>
+          <Item onClick={() => setCategory('')} active={!category}>
+            All
+          </Item>
+          {categories?.map((category) => (
+            <Item
+              key={category.id}
+              onClick={() => setCategory(category.name)}
+              active={category.name === category}
+            >
+              {category.name}
+            </Item>
+          ))}
         </ul>
       </div>
       <div>
         <Title>Company</Title>
         <select>
-          <option value="">Company 1</option>
-          <option value="">Company 2</option>
-          <option value="">Company 3</option>
+          <option value="">All</option>
         </select>
       </div>
       <div>
@@ -63,7 +74,7 @@ function Sidebar() {
 function Item({ children, onClick, active }) {
   return (
     <li
-      className={`cursor-pointer text-textLight  font-thin
+      className={`cursor-pointer text-textLight  font-thin hover:font-bold hover:underline transition-all duration-300 ease-in-out
       ${active && 'font-bold underline back-face-visibility'}`}
       onClick={onClick}
     >

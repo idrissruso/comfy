@@ -1,6 +1,6 @@
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { useParams } from 'react-router-dom'
-import { getProductById } from '../../Api/methods'
+import { getProductById } from '../Api/methods'
 
 const useGetProduct = () => {
   const queryClient = useQueryClient()

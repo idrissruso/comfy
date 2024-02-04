@@ -50,6 +50,8 @@ function Navbar() {
               label={user}
               onClick={() => {
                 dispatch(logout())
+                localStorage.removeItem('accessToken')
+                localStorage.removeItem('refreshToken')
                 navigate('/login')
               }}
             >

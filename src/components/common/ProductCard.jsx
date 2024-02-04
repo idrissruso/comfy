@@ -1,8 +1,11 @@
 import LoadImgBox from './LoadImgBox'
 import { capitalize } from '../../utils/methods'
 import Button from './Button'
+import { useNavigate } from 'react-router-dom'
 
 function ProductCard({ product, size, type }) {
+  const navigate = useNavigate()
+
   const sizes = {
     small: 'font-thin text-sm',
     medium: 'font-semibold text-md',
@@ -49,9 +52,11 @@ function ProductCard({ product, size, type }) {
             src={product.image}
             alt={'product.name'}
             size={'md'}
+            id={product.id}
             params={
               'hover:backdrop-blur-md transition-all duration-300 ease-in-out'
             }
+            noHover={true}
           />
         </div>
         <div className="flex flex-col">
@@ -70,7 +75,12 @@ function ProductCard({ product, size, type }) {
             </span>
           </div>
           <div className="mt-5">
-            <Button text="Details" size="sm" type="primary" />
+            <Button
+              text="Details"
+              size="sm"
+              type="primary"
+              onClick={() => navigate(`/product/${product.id}`)}
+            />
           </div>
         </div>
       </div>
