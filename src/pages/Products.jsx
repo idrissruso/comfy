@@ -1,7 +1,7 @@
-import { createContext, useState } from 'react'
+import { createContext, useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
-import { getProductByPage } from '../Api/methods'
+import { getProductByPage, getProductsByCategoryPage } from '../Api/methods'
 import { Items } from '../components/products/Items'
 
 import Header from '../components/common/Header'
@@ -15,25 +15,53 @@ export const DisplayContext = createContext()
 
 function Products() {
   const [display, setDisplay] = useState('grid')
+  const [category, setCategory] = useState('All')
+  const [products, setProducts] = useState([])
   const { page } = useParams()
-  const { data, isLoading, isError, error } = useQuery({
+  const {
+    isLoading: isLoading1,
+    isError,
+    error,
+    data,
+    isSuccess,
+  } = useQuery({
     queryKey: ['products', page?.toString()],
     queryFn: () => getProductByPage(page),
     staleTime: 0,
+    enabled: category === 'All',
   })
 
-  if (isLoading) return <Loader />
+  const {
+    isLoading: isLoading2,
+    isError: isError2,
+    error: error2,
+    data: data2,
+    isSuccess: isSuccess2,
+  } = useQuery({
+    queryKey: ['products', category, page?.toString()],
+    queryFn: () => getProductsByCategoryPage(category, page),
+    enabled: category !== 'All',
+    staleTime: 0,
+  })
 
-  if (isError)
-    return (
-      <div className="flex items-center justify-center">
-        <Error message={error.message} />
-      </div>
-    )
+  useEffect(() => {
+    if (isSuccess) {
+      setProducts(data || [])
+    }
+    if (isSuccess2) {
+      setProducts(data2 || [])
+    }
+  }, [data, data2, isSuccess, isSuccess2])
 
   return (
-    <DisplayContext.Provider value={{ display, setDisplay, data }}>
-      <div>
+    <DisplayContext.Provider
+      value={{ display, setDisplay, products, category, setCategory }}
+    >
+      {isLoading1 || isLoading2 ? <Loader /> : null}
+      {isError || isError2 ? (
+        <Error error={error2 || error || 'An error occurred'} />
+      ) : null}
+      <div className=" select-none">
         <Header path={'Products'} />
         <div className="flex px-[11%]  py-14 flex-wrap h-full">
           <div>

@@ -1,14 +1,11 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import Button from '../common/Button'
 import { useGetCategories } from '../../hooks/useGetCategories'
+import { DisplayContext } from '../../pages/Products'
 
 function Sidebar() {
   const [price, setPrice] = useState(50)
-  const [category, setCategory] = useState('')
-
-  function handleCategoryChange(event) {
-    setCategory(event.target.value)
-  }
+  const { category, setCategory } = useContext(DisplayContext)
 
   const { data: categories } = useGetCategories()
 
@@ -26,16 +23,17 @@ function Sidebar() {
       <div>
         <Title>Category</Title>
         <ul className="flex flex-col">
-          <Item onClick={() => setCategory('')} active={!category}>
+          <Item onClick={() => setCategory('All')} category={category}>
             All
           </Item>
-          {categories?.map((category) => (
+          {categories?.map((cat) => (
             <Item
-              key={category.id}
-              onClick={() => setCategory(category.name)}
-              active={category.name === category}
+              key={cat.id}
+              onClick={() => setCategory(cat.id)}
+              category={category}
+              id={cat.id}
             >
-              {category.name}
+              {cat.name}
             </Item>
           ))}
         </ul>
@@ -71,12 +69,15 @@ function Sidebar() {
   )
 }
 
-function Item({ children, onClick, active }) {
+function Item({ children, onClick, category, id }) {
+  const active = category === id || category === children
+
   return (
     <li
       className={`cursor-pointer text-textLight  font-thin hover:font-bold hover:underline transition-all duration-300 ease-in-out
-      ${active && 'font-bold underline back-face-visibility'}`}
+      ${active && 'font-semibold underline text-secondary-400 scale-90'}`}
       onClick={onClick}
+      value={children}
     >
       {children}
     </li>

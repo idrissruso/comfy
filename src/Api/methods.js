@@ -75,3 +75,25 @@ export async function getCategories() {
     throw error
   }
 }
+
+export async function getProductsByCategoryPage(categoryId, page = 1) {
+  try {
+    const response = await fetch(
+      `${API_URL}product/category/${categoryId}/${page}/`
+    )
+    const { products } = await response.json()
+    return products
+  } catch (error) {
+    throw error
+  }
+}
+
+export async function getProductsByCategory(categoryId) {
+  try {
+    const response = await fetch(`${API_URL}product/category/${categoryId}/`)
+    const { products } = await response.json()
+    return products
+  } catch (error) {
+    throw error
+  }
+}
