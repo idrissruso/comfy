@@ -7,12 +7,17 @@ import { Action } from './Action'
 import { NavItems } from './NavItems'
 import { Logo } from './Logo'
 import { useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { selectUser, logout } from '../../slices/authSlice'
+import { BiLogOut } from 'react-icons/bi'
 
 export const NavContext = createContext()
 
 function Navbar() {
   const [showNav, setShowNav] = useState(false)
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const user = useSelector(selectUser)
 
   function toggleNav() {
     setShowNav(!showNav)
@@ -23,7 +28,7 @@ function Navbar() {
   }
 
   return (
-    <NavContext.Provider value={{ showNav, toggleNav, closeNav }}>
+    <NavContext.Provider value={{ showNav, toggleNav, closeNav, user }}>
       <nav className="mt-4 flex items-center justify-between px-[11%] mb-7">
         <SmallScreenNav />
         <Logo />
@@ -40,13 +45,21 @@ function Navbar() {
           <Action label="Cart" count={10} onClick={() => navigate('/cart')}>
             <BiSolidCartAlt size={34} color="#AA7B5F" />
           </Action>
-          <Action label="Login">
-            <BiSolidUserPlus
-              size={34}
-              color="#AA7B5F"
-              onClick={() => navigate('/login')}
-            />
-          </Action>
+          {user ? (
+            <Action
+              label={user}
+              onClick={() => {
+                dispatch(logout())
+                navigate('/login')
+              }}
+            >
+              <BiLogOut size={34} color="#AA7B5F" />
+            </Action>
+          ) : (
+            <Action label="Login" onClick={() => navigate('/login')}>
+              <BiSolidUserPlus size={34} color="#AA7B5F" />
+            </Action>
+          )}
         </div>
       </nav>
     </NavContext.Provider>

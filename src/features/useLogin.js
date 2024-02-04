@@ -16,6 +16,8 @@ export function useLogin() {
       if (data.status === 200) {
         const token = data.data.access
         const decoded = jwtDecode(token)
+        localStorage.setItem('accessToken', data.data.access)
+        localStorage.setItem('refresh', data.data.refresh)
         dispatch(
           loginAction({
             user: decoded.userName,
