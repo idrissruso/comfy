@@ -50,15 +50,20 @@ const cartSlice = createSlice({
       state.totalPrice = 0
     },
     onQuantityChange(state, action) {
-      const { id, quantity } = action.payload
+      const { id, increase } = action.payload
       const existingItem = state.items.find((item) => item.id === id)
-      if (existingItem) {
-        const quantityDiff = Number(quantity) - existingItem.quantity
-        state.totalQuantity += quantityDiff
-        state.totalPrice += Number(
-          Number(quantityDiff * existingItem.price).toFixed(2)
-        )
-        existingItem.quantity = Number(quantity)
+      if (increase) {
+        state.totalQuantity++
+        state.totalPrice = state.totalPrice + Number(existingItem.price)
+        existingItem.quantity++
+        existingItem.totalPrice =
+          existingItem.totalPrice + Number(existingItem.price)
+      } else {
+        state.totalQuantity--
+        state.totalPrice = state.totalPrice - Number(existingItem.price)
+        existingItem.quantity--
+        existingItem.totalPrice =
+          existingItem.totalPrice - Number(existingItem.price)
       }
     },
   },
@@ -71,7 +76,7 @@ export const {
   onQuantityChange,
 } = cartSlice.actions
 
-export const selectCart = (state) => state.cart
+export const selectCart = (state) => state.cartSlice.items
 export const selectCartItems = (state) => state.cartSlice.items
 export const selectTotalQuantity = (state) => state.cartSlice.totalQuantity
 export const selectTotalPrice = (state) => state.cartSlice.totalPrice

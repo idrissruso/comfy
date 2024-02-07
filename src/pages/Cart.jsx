@@ -2,8 +2,12 @@ import Header from '../components/common/Header'
 import CartItem from '../components/cart/CartItem'
 import Resume from '../components/cart/Resume'
 import Button from '../components/common/Button'
+import { useSelector } from 'react-redux'
+import { selectCart } from '../slices/cartSlice'
 
 function Cart() {
+  const cart = useSelector(selectCart)
+
   return (
     <div>
       <Header path={'Cart'} />
@@ -11,14 +15,9 @@ function Cart() {
         <main className="flex gap-10 justify-between items-center flex-wrap">
           <div className="flex flex-col gap-5 flex-1">
             <div className="flex flex-col gap-5 overflow-x-auto max-h-[30rem] pr-5">
-              <CartItem />
-              <CartItem />
-              <CartItem />
-              <CartItem />
-              <CartItem />
-              <CartItem />
-              <CartItem />
-              <CartItem />
+              {cart.map((product) => (
+                <CartItem key={product.id} product={product} />
+              ))}
             </div>
             <div className="flex justify-between mb-5">
               <Button text={'Continue Shopping'} size={'sm'} type={'primary'} />
