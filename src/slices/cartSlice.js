@@ -80,5 +80,6 @@ export const selectCart = (state) => state.cartSlice.items
 export const selectCartItems = (state) => state.cartSlice.items
 export const selectTotalQuantity = (state) => state.cartSlice.totalQuantity
 export const selectTotalPrice = (state) => state.cartSlice.totalPrice
+export const selectShippingFee = (state) => state.cartSlice.shippingFee
 
 export default cartSlice.reducer

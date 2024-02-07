@@ -9,11 +9,14 @@ import { useNavigate } from 'react-router-dom'
 import { BiLogOut } from 'react-icons/bi'
 import { logout } from '../../slices/authSlice'
 import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { selectTotalQuantity } from '../../slices/cartSlice'
 
 export function SmallScreenNav() {
   const { showNav, closeNav, user } = useContext(NavContext)
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const quantity = useSelector(selectTotalQuantity)
 
   return (
     showNav && (
@@ -33,12 +36,12 @@ export function SmallScreenNav() {
           <ul className="flex flex-col space-y-4">
             <NavItem link="/home">Home</NavItem>
             <NavItem link="/about">About</NavItem>
-            <NavItem link="/products">Products</NavItem>
+            <NavItem link="/products/1">Products</NavItem>
           </ul>
           <div className="mt-10 flex gap-10 justify-center">
             <Action
               label="Cart"
-              count={10}
+              count={quantity}
               onClick={() => {
                 navigate('/cart')
                 closeNav()

@@ -39,7 +39,14 @@ function Product() {
   return (
     <div className="mx-[11%] space-y-5">
       <Header path={'Product/Cake'} />
-      <Button text={'Back to All Products'} size={'sm'} type={'primary'} />
+      <Button
+        text={'Back to All Products'}
+        size={'sm'}
+        type={'primary'}
+        onClick={() =>
+          navigate(`/products/${localStorage.getItem('page') || '1'}`)
+        }
+      />
       <div className="grid md:grid-cols-2 gap-10 ">
         <div>
           <LoadImgBox src={productData?.image} size={'lg'} noHover={true} />
