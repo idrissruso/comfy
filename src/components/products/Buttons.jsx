@@ -1,7 +1,4 @@
-import { useState } from 'react'
-
-function Buttons() {
-  const [count, setCount] = useState(1)
+function Buttons({ count, setCount }) {
   const handleIncrease = () => {
     setCount(count + 1)
   }

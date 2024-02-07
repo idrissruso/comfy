@@ -71,4 +71,9 @@ export const {
   onQuantityChange,
 } = cartSlice.actions
 
+export const selectCart = (state) => state.cart
+export const selectCartItems = (state) => state.cartSlice.items
+export const selectTotalQuantity = (state) => state.cartSlice.totalQuantity
+export const selectTotalPrice = (state) => state.cartSlice.totalPrice
+
 export default cartSlice.reducer

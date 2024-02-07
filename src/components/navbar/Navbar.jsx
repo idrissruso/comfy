@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectUser, logout } from '../../slices/authSlice'
 import { BiLogOut } from 'react-icons/bi'
-
+import { selectTotalQuantity } from '../../slices/cartSlice'
 export const NavContext = createContext()
 
 function Navbar() {
@@ -18,6 +18,7 @@ function Navbar() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const user = useSelector(selectUser)
+  const quantity = useSelector(selectTotalQuantity)
 
   function toggleNav() {
     setShowNav(!showNav)
@@ -42,7 +43,11 @@ function Navbar() {
         </div>
         <NavItems />
         <div className="md:flex gap-3 hidden ">
-          <Action label="Cart" count={10} onClick={() => navigate('/cart')}>
+          <Action
+            label="Cart"
+            count={quantity}
+            onClick={() => navigate('/cart')}
+          >
             <BiSolidCartAlt size={34} color="#AA7B5F" />
           </Action>
           {user ? (

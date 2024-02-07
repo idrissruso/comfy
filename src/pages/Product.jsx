@@ -9,11 +9,26 @@ import toast from 'react-hot-toast'
 import Loader from '../components/common/Loader'
 import { useNavigate } from 'react-router-dom'
 import { useGetCategory } from '../hooks/useGetCategory'
+import { useDispatch } from 'react-redux'
+import { useState } from 'react'
+import { addItemToCart } from '../slices/cartSlice'
 
 function Product() {
   const { isLoading, isError, error, productData } = useGetProduct()
+  const [count, setCount] = useState(1)
   const navigate = useNavigate()
+  const dispatch = useDispatch()
   const { data } = useGetCategory(productData?.category || 1)
+
+  const handleAddToCart = () => {
+    dispatch(
+      addItemToCart({
+        data: productData,
+        amount: count,
+      })
+    )
+    toast.success('Item added to cart')
+  }
 
   if (isError) {
     toast.error(error.message)
@@ -45,9 +60,14 @@ function Product() {
           <IndexVal stock={'In Stock'} brand={data} code={productData?.code} />
           <hr className="border-1 height-[1px] my-5" />
           <div className="flex flex-col gap-5 my-5">
-            <Buttons />
+            <Buttons count={count} setCount={setCount} />
             <div>
-              <Button text={'Add to Cart'} size={'sm'} type={'primary'} />
+              <Button
+                text={'Add to Cart'}
+                size={'sm'}
+                type={'primary'}
+                onClick={handleAddToCart}
+              />
             </div>
           </div>
         </div>
