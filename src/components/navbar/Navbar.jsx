@@ -55,7 +55,7 @@ function Navbar() {
                 navigate('/login')
               }}
             >
-              <BiLogOut size={34} color="#AA7B5F" />
+              <BiLogOut size={20} color="#AA7B5F" />
             </Action>
           ) : (
             <Action label="Login" onClick={() => navigate('/login')}>
