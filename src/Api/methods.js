@@ -66,6 +66,29 @@ export async function login({ username, password }) {
   }
 }
 
+export async function register({ username, email, password1 }) {
+  try {
+    const response = await fetch(`${API_URL}auth/register/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username,
+        email,
+        password1,
+        password2: password1,
+      }),
+    })
+    const data = await response.json()
+    console.log('data', data)
+    return { status: response.status, data }
+  } catch (error) {
+    console.log('error', error)
+    throw error
+  }
+}
+
 export async function getCategories() {
   try {
     const response = await fetch(`${API_URL}category/all/`)
